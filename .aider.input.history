@@ -1,0 +1,32 @@
+
+# 2025-11-20 14:15:53.343712
++Code the following app
++```
++Create a mini app called “Base Snake”. It is a fun and modern version of the classic Snake game, themed around the Base network. The player controls a small blue snake that moves around the screen to eat Base logos or blue dots. Each item collected makes the snake longer and increases the score by 1 point. Every 10 points, the snake becomes slightly faster and the player advances to the next level, up to level 10. As the levels increase, the speed rises and small obstacles start to appear on the map, such as blue blocks or walls that the snake must avoid.
++Add simple sound effects: a short sound when collecting a dot, and a different sound when the game ends. The snake’s color changes dynamically as the player progresses, starting from light blue and becoming brighter and more electric at higher levels.
++Show the current level and score during the game, and display the highest local score on the device so the user can try to beat their own record. Include a global leaderboard where users can submit their nickname and view the top scores from other players. When the game ends, show a short animation or fade-out effect before offering buttons to “Restart” or “Play Again”.
++The interface should be minimal, fast, and mobile-friendly, using Base colors (blue and white) with smooth motion. The goal is to make a fun, nostalgic arcade-style game that becomes more challenging and rewarding as the levels increase, while allowing players to compete through a shared leaderboard.
++
++
++```
++
++Generate an app logo and update the app metadata title and description.
+
+# 2025-11-20 14:15:53.344280
++Code the following app
++```
++Create a mini app called “Base Snake”. It is a fun and modern version of the classic Snake game, themed around the Base network. The player controls a small blue snake that moves around the screen to eat Base logos or blue dots. Each item collected makes the snake longer and increases the score by 1 point. Every 10 points, the snake becomes slightly faster and the player advances to the next level, up to level 10. As the levels increase, the speed rises and small obstacles start to appear on the map, such as blue blocks or walls that the snake must avoid.
++Add simple sound effects: a short sound when collecting a dot, and a different sound when the game ends. The snake’s color changes dynamically as the player progresses, starting from light blue and becoming brighter and more electric at higher levels.
++Show the current level and score during the game, and display the highest local score on the device so the user can try to beat their own record. Include a global leaderboard where users can submit their nickname and view the top scores from other players. When the game ends, show a short animation or fade-out effect before offering buttons to “Restart” or “Play Again”.
++The interface should be minimal, fast, and mobile-friendly, using Base colors (blue and white) with smooth motion. The goal is to make a fun, nostalgic arcade-style game that becomes more challenging and rewarding as the levels increase, while allowing players to compete through a shared leaderboard.
++
++
++```
++
++Generate an app logo and update the app metadata title and description.
+
+# 2025-11-20 14:16:53.206548
++apply changes
+
+# 2025-11-20 14:16:53.207096
++apply changes
