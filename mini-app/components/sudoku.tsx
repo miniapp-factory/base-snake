@@ -23,6 +23,19 @@ function generateFullBoard(): (number | null)[][] {
     }
     return true;
   }
+  function undoLastMove() {
+    if (history.length === 0) return;
+    const last = history[history.length - 1];
+    const newBoard = board.map(r => [...r]);
+    newBoard[last.row][last.col] = last.prevValue;
+    setBoard(newBoard);
+    setHistory(prev => prev.slice(0, -1));
+    setErrors(prev => {
+      const newErr = prev.map(r => [...r]);
+      newErr[last.row][last.col] = false;
+      return newErr;
+    });
+  }
 
   function solve(): boolean {
     for (let r = 0; r < SIZE; r++) {
@@ -64,6 +77,9 @@ function removeNumbers(board: (number | null)[][], count: number): (number | nul
 export default function Sudoku() {
   const [board, setBoard] = useState<(number | null)[][]>([]);
   const [selected, setSelected] = useState<{ row: number; col: number } | null>(null);
+  const [history, setHistory] = useState<
+    { row: number; col: number; prevValue: number | null }[]
+  >([]);
   const [errors, setErrors] = useState<boolean[][]>(Array.from({ length: SIZE }, () => Array(SIZE).fill(false)));
 
   useEffect(() => {
@@ -76,6 +92,7 @@ export default function Sudoku() {
     setBoard(puzzle);
     setSelected(null);
     setErrors(Array.from({ length: SIZE }, () => Array(SIZE).fill(false)));
+    setHistory([]);
   }
 
   function handleCellClick(row: number, col: number) {
@@ -97,6 +114,7 @@ export default function Sudoku() {
       });
       return;
     }
+    setHistory(prev => [...prev, { row, col, prevValue: board[row][col] }]);
     const newBoard = board.map(r => [...r]);
     newBoard[row][col] = num;
     setBoard(newBoard);
@@ -147,6 +165,7 @@ export default function Sudoku() {
           })
         )}
       </div>
+      <Button onClick={undoLastMove}>Undo</Button>
       <Button onClick={startNewGame}>New Game</Button>
     </div>
   );
