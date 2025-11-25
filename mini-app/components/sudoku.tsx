@@ -23,19 +23,6 @@ function generateFullBoard(): (number | null)[][] {
     }
     return true;
   }
-  function undoLastMove() {
-    if (history.length === 0) return;
-    const last = history[history.length - 1];
-    const newBoard = board.map(r => [...r]);
-    newBoard[last.row][last.col] = last.prevValue;
-    setBoard(newBoard);
-    setHistory(prev => prev.slice(0, -1));
-    setErrors(prev => {
-      const newErr = prev.map(r => [...r]);
-      newErr[last.row][last.col] = false;
-      return newErr;
-    });
-  }
 
   function solve(): boolean {
     for (let r = 0; r < SIZE; r++) {
@@ -80,6 +67,19 @@ export default function Sudoku() {
   const [history, setHistory] = useState<
     { row: number; col: number; prevValue: number | null }[]
   >([]);
+  function undoLastMove() {
+    if (history.length === 0) return;
+    const last = history[history.length - 1];
+    const newBoard = board.map(r => [...r]);
+    newBoard[last.row][last.col] = last.prevValue;
+    setBoard(newBoard);
+    setHistory(prev => prev.slice(0, -1));
+    setErrors(prev => {
+      const newErr = prev.map(r => [...r]);
+      newErr[last.row][last.col] = false;
+      return newErr;
+    });
+  }
   const [errors, setErrors] = useState<boolean[][]>(Array.from({ length: SIZE }, () => Array(SIZE).fill(false)));
 
   useEffect(() => {
