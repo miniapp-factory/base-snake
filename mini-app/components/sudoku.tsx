@@ -104,6 +104,8 @@ export default function Sudoku() {
     setBoard(puzzle);
     setSelected(null);
     setErrors(Array.from({ length: SIZE }, () => Array(SIZE).fill(false)));
+    setFullBoard(full);
+    setHintsRemaining(3);
     setHistory([]);
   }
 
