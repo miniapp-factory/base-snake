@@ -28,3 +28,9 @@
 
 # 2025-11-25 23:21:40.768203
 +add an UNDO button below the grid. When clicked, it removes the last number placed by the player, reverting that cell to empty. It should track the move history to support multiple undos in a row. Make the button style consistent with the rest of the colorful theme.
+
+# 2025-11-25 23:38:48.020786
++add a Hint button that reveals the correct number for the currently selected cell. Limit this feature to 3 uses per game. The button text should track the remaining hints, starting at "Hint (3)" and counting down to "Hint (0)" where it becomes disabled. Ensure the counter resets to 3 every time a new game is generated.
+
+# 2025-11-25 23:38:48.021631
++add a Hint button that reveals the correct number for the currently selected cell. Limit this feature to 3 uses per game. The button text should track the remaining hints, starting at "Hint (3)" and counting down to "Hint (0)" where it becomes disabled. Ensure the counter resets to 3 every time a new game is generated.
