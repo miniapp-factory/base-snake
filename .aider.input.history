@@ -22,3 +22,9 @@
 
 # 2025-11-25 23:13:23.767082
 +apply changes
+
+# 2025-11-25 23:21:40.767199
++add an UNDO button below the grid. When clicked, it removes the last number placed by the player, reverting that cell to empty. It should track the move history to support multiple undos in a row. Make the button style consistent with the rest of the colorful theme.
+
+# 2025-11-25 23:21:40.768203
++add an UNDO button below the grid. When clicked, it removes the last number placed by the player, reverting that cell to empty. It should track the move history to support multiple undos in a row. Make the button style consistent with the rest of the colorful theme.
