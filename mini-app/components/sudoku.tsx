@@ -64,6 +64,8 @@ function removeNumbers(board: (number | null)[][], count: number): (number | nul
 export default function Sudoku() {
   const [board, setBoard] = useState<(number | null)[][]>([]);
   const [selected, setSelected] = useState<{ row: number; col: number } | null>(null);
+  const [hintsRemaining, setHintsRemaining] = useState<number>(3);
+  const [fullBoard, setFullBoard] = useState<(number | null)[][]>([]);
   const [history, setHistory] = useState<
     { row: number; col: number; prevValue: number | null }[]
   >([]);
@@ -79,6 +81,16 @@ export default function Sudoku() {
       newErr[last.row][last.col] = false;
       return newErr;
     });
+  }
+  function handleHint() {
+    if (!selected || hintsRemaining === 0) return;
+    const { row, col } = selected;
+    const correct = fullBoard[row][col];
+    if (correct === null) return;
+    const newBoard = board.map(r => [...r]);
+    newBoard[row][col] = correct;
+    setBoard(newBoard);
+    setHintsRemaining(prev => prev - 1);
   }
   const [errors, setErrors] = useState<boolean[][]>(Array.from({ length: SIZE }, () => Array(SIZE).fill(false)));
 
@@ -165,6 +177,7 @@ export default function Sudoku() {
           })
         )}
       </div>
+      <Button onClick={handleHint} disabled={hintsRemaining === 0 || !selected}>Hint ({hintsRemaining})</Button>
       <Button onClick={undoLastMove}>Undo</Button>
       <Button onClick={startNewGame}>New Game</Button>
     </div>
