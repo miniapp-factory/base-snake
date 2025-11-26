@@ -40,3 +40,9 @@
 
 # 2025-11-26 00:14:04.482969
 +modify the new game logic to ensure the puzzle layout is completely randomized every time. It must generate a fresh, unique board configuration for every match using randomization algorithms, ensuring the arrangement of numbers and empty cells is never repeated from previous games.
+
+# 2025-11-26 00:22:55.466971
++add a "Verify" button that checks the player's inputs against the solution. If the board is perfectly solved, display "Bravo, You Won!". If there are mistakes, count them and display a message saying "There are X errors", and simultaneously highlight the background of all incorrect cells in red to indicate exactly where the mistakes are.
+
+# 2025-11-26 00:22:55.467617
++add a "Verify" button that checks the player's inputs against the solution. If the board is perfectly solved, display "Bravo, You Won!". If there are mistakes, count them and display a message saying "There are X errors", and simultaneously highlight the background of all incorrect cells in red to indicate exactly where the mistakes are.
