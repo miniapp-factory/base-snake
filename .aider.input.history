@@ -46,3 +46,9 @@
 
 # 2025-11-26 00:22:55.467617
 +add a "Verify" button that checks the player's inputs against the solution. If the board is perfectly solved, display "Bravo, You Won!". If there are mistakes, count them and display a message saying "There are X errors", and simultaneously highlight the background of all incorrect cells in red to indicate exactly where the mistakes are.
+
+# 2025-11-26 01:08:58.486357
++completely rewrite the "New Game" function. instead of generating numbers randomly, start with one valid solved Sudoku base grid. Then, randomize it by applying valid transformations: swap rows within the same 3-row band, swap columns within the same 3-column band, and transpose the board (swap X and Y axis). Do this multiple times to ensure the puzzle looks totally unique every time while remaining solvable. Then remove random numbers to create the puzzle.
+
+# 2025-11-26 01:08:58.486999
++completely rewrite the "New Game" function. instead of generating numbers randomly, start with one valid solved Sudoku base grid. Then, randomize it by applying valid transformations: swap rows within the same 3-row band, swap columns within the same 3-column band, and transpose the board (swap X and Y axis). Do this multiple times to ensure the puzzle looks totally unique every time while remaining solvable. Then remove random numbers to create the puzzle.
