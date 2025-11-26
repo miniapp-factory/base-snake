@@ -69,6 +69,7 @@ export default function Sudoku() {
   const [history, setHistory] = useState<
     { row: number; col: number; prevValue: number | null }[]
   >([]);
+  const [message, setMessage] = useState<string>("");
   function undoLastMove() {
     if (history.length === 0) return;
     const last = history[history.length - 1];
@@ -91,6 +92,25 @@ export default function Sudoku() {
     newBoard[row][col] = correct;
     setBoard(newBoard);
     setHintsRemaining(prev => prev - 1);
+  }
+
+  function verifyBoard() {
+    const newErrors: boolean[][] = Array.from({ length: SIZE }, () => Array(SIZE).fill(false));
+    let errorCount = 0;
+    for (let r = 0; r < SIZE; r++) {
+      for (let c = 0; c < SIZE; c++) {
+        if (board[r][c] !== fullBoard[r][c]) {
+          newErrors[r][c] = true;
+          errorCount++;
+        }
+      }
+    }
+    setErrors(newErrors);
+    if (errorCount === 0) {
+      setMessage("Bravo, You Won!");
+    } else {
+      setMessage(`There are ${errorCount} errors`);
+    }
   }
   const [errors, setErrors] = useState<boolean[][]>(Array.from({ length: SIZE }, () => Array(SIZE).fill(false)));
 
@@ -181,7 +201,9 @@ export default function Sudoku() {
       </div>
       <Button onClick={handleHint} disabled={hintsRemaining === 0 || !selected}>Hint ({hintsRemaining})</Button>
       <Button onClick={undoLastMove}>Undo</Button>
+      <Button onClick={verifyBoard}>Verify</Button>
       <Button onClick={startNewGame}>New Game</Button>
+      <p className="mt-2 text-center">{message}</p>
     </div>
   );
 }
